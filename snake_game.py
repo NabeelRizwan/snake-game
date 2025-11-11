@@ -184,10 +184,10 @@ class Game:
         self.font = pygame.font.Font(None, 36)
         self.small_font = pygame.font.Font(None, 24)
         self.snake = Snake()
-        self.food = self.spawn_food()
         self.particles = []
-        self.obstacles = []
-        self.powerups = []
+        self.obstacles = []      # Move BEFORE spawn_food
+        self.powerups = []        # Move BEFORE spawn_food
+        self.food = self.spawn_food()  # Now this works!
         self.level = 1
         self.high_score = 0
         self.game_speed = 8
@@ -451,3 +451,4 @@ class Game:
 if __name__ == "__main__":
     game = Game()
     game.run()
+    
